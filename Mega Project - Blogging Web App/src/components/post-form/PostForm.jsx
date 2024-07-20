@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
-import { Button, Input, RTE, Select } from "..";
-import appwriteService from "../../appwrite/config";
+import { Button, Input, RTE, Select } from "../index";
+import appwriteService from "../../apppwrite/configure";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -39,7 +39,6 @@ export default function PostForm({ post }) {
       }
     } else {
       const file = await appwriteService.uploadFile(data.image[0]);
-
       if (file) {
         const fileId = file.$id;
         data.featuredImage = fileId;
@@ -66,7 +65,7 @@ export default function PostForm({ post }) {
     return "";
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const subscription = watch((value, { name }) => {
       if (name === "title") {
         setValue("slug", slugTransform(value.title), { shouldValidate: true });
