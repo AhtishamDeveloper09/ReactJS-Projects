@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import "./App.css";
 import authService from "./apppwrite/auth";
 import { login, logout } from "./store/authSlice";
-import { Header, Footer } from "./components";
+import { Footer, Header } from "./components/index";
 import { Outlet } from "react-router-dom";
 
 function App() {
@@ -20,9 +20,7 @@ function App() {
           dispatch(logout());
         }
       })
-      .finally(() => {
-        setLoading(false);
-      });
+      .finally(() => setLoading(false));
   }, []);
 
   return !loading ? (
@@ -30,7 +28,7 @@ function App() {
       <div className="w-full block">
         <Header />
         <main>
-         TODO: {/* <Outlet /> */}
+          <Outlet />
         </main>
         <Footer />
       </div>
