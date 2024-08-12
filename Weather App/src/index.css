@@ -29,20 +29,21 @@ h1 {
   color: #fff;
 }
 
-/* .bg-image{
-
+/* .bg-image {
+  width: 100%;
+  height: 100vh;
 } */
 
 .bg-image img {
+  position: absolute;
+  top: 0;
+  z-index: -1;
   /* background-repeat: no-repeat ;
   background-position:  center center/cover; */
-  position: absolute;
-  max-width: 100%;
+  width: 100%;
   height: 100%;
-  object-fit: contain;
-  top: 0;
+  object-fit: cover;
   /* left: 0; */
-  z-index: -1;
 }
 
 .app .search {
@@ -76,15 +77,27 @@ h1 {
 }
 
 .app .top {
+  text-align: center;
   width: 100%;
   margin: 1rem auto;
 }
 
+.top .location {
+  margin-bottom: 0.75rem;
+}
+
+.top .date {
+  font-size: 1.1rem;
+  font-weight: bolder;
+  font-style: italic;
+}
+
 .app .description {
-  position: relative;
-  right: 0;
+  text-align: center;
+  /* position: relative;
+  right: -90%;
   transform-origin: 0 0;
-  transform: rotate(269deg);
+  transform: rotate(269deg); */
 }
 
 .app .bottom {
@@ -101,3 +114,9 @@ h1 {
 .bold {
   font-weight: 700;
 }
+
+/* @media screen and (max-width: 1024px) {
+  .app{
+    height: 100%;
+  }
+} */
